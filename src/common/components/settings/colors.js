@@ -1,0 +1,90 @@
+class Colors {
+    constructor() {
+        /*Purple*/
+        this.purple50 = '#F3E5F5';
+        this.purple100 = '#E1BEE7';
+        this.purple200 = '#CE93D8';
+        this.purple300 = '#BA68C8';
+        this.purple400 = '#AB47BC';
+        this.purple500 = '#9C27B0';
+        this.purple600 = '#8E24AA';
+        this.purple700 = '#7B1FA2';
+        this.purple800 = '#6A1B9A';
+        this.purple900 = '#4A148C';
+        /*=Grey*/
+        this.grey50 = '#FAFAFA';
+        this.grey100 = '#F5F5F5';
+        this.grey200 = '#EEEEEE';
+        this.grey300 = '#E0E0E0';
+        this.grey400 = '#BDBDBD';
+        this.grey500 = '#9E9E9E';
+        this.grey600 = '#757575';
+        this.grey700 = '#616161';
+        this.grey800 = '#424242';
+        this.grey900 = '#212121';
+
+        /*=Blue*/
+        this.blue50 = '#E3F2FD';
+        this.blue100 = '#BBDEFB';
+        this.blue200 = '#90CAF9';
+        this.blue300 = '#64B5F6';
+        this.blue400 = '#42A5F5';
+        this.blue500 = '#2196F3';
+        this.blue600 = '#1E88E5';
+        this.blue700 = '#1976D2';
+        this.blue800 = '#1565C0';
+        this.blue900 = '#0D47A1';
+        this.blueA100 = '#82B1FF';
+        this.blueA200 = '#448AFF';
+        this.blueA400 = '#2979FF';
+        this.blueA700 = '#2962FF';
+        /*=Red*/
+        this.red50 = '#FFEBEE';
+        this.red100 = '#FFCDD2';
+        this.red200 = '#EF9A9A';
+        this.red300 = '#E57373';
+        this.red400 = '#EF5350';
+        this.red500 = '#F44336';
+        this.red600 = '#E53935';
+        this.red700 = '#D32F2F';
+        this.red800 = '#C62828';
+        this.red900 = '#B71C1C';
+        this.redA100 = '#FF8A80';
+        this.redA200 = '#FF5252';
+        this.redA400 = '#FF1744';
+        this.redA700 = '#D50000';
+        /*=Green*/
+        this.green50 = '#E8F5E9';
+        this.green100 = '#C8E6C9';
+        this.green200 = '#A5D6A7';
+        this.green300 = '#81C784';
+        this.green400 = '#66BB6A';
+        this.green500 = '#4CAF50';
+        this.green600 = '#43A047';
+        this.green700 = '#388E3C';
+        this.green800 = '#2E7D32';
+        this.green900 = '#1B5E20';
+        this.greenA100 = '#B9F6CA';
+        this.greenA200 = '#69F0AE';
+        this.greenA400 = '#00E676';
+        this.greenA700 = '#00C853';
+        /*=Orange*/
+        this.orange50 = '#FFF3E0';
+        this.orange100 = '#FFE0B2';
+        this.orange200 = '#FFCC80';
+        this.orange300 = '#FFB74D';
+        this.orange400 = '#FFA726';
+        this.orange500 = '#FF9800';
+        this.orange600 = '#FB8C00';
+        this.orange700 = '#F57C00';
+        this.orange800 = '#EF6C00';
+        this.orange900 = '#E65100';
+        this.orangeA100 = '#FFD180';
+        this.orangeA200 = '#FFAB40';
+        this.orangeA400 = '#FF9100';
+        this.orangeA700 = '#FF6D00';
+    }
+}
+// creating object
+var colors = new Colors();
+export default colors;
