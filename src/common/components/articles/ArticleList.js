@@ -1,7 +1,6 @@
 import React from 'react';
-import ArticleForm from './ArticleForm.js';
 
-export default class AddArticle extends React.Component {
+export default class ArticleList extends React.Component {
     // Constructor
     constructor(props) {
         // Running constructor of Parent (React.Component) for binding this to object.
@@ -9,10 +8,14 @@ export default class AddArticle extends React.Component {
         super(props);
     }
 
+
+
     render() {
         return (
             <div>
-                <ArticleForm></ArticleForm>
+                {this.props.articles && <ul>
+                    {this.props.articles.map(article=><li>{article.title}</li>)}
+                </ul>}
             </div>
         )
     }

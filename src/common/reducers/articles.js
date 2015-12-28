@@ -1,16 +1,23 @@
-import {ADD_ARTICLE, REMOVE_ARTICLE} from '../actions/articles';
+import {ARTICLES_GET, ARTICLES_GET_SUCCESS, ARTICLES_GET_FAILURE, ADD_ARTICLE, REMOVE_ARTICLE} from '../actions/articles';
 
 export default function articles(state = [], action) {
-    switch (action.type) {
-        case ADD_ARTICLE:
-            //var newState=[];
-            //newState.push(action.payload);
-            //for (var i = 0; i < state.length; i++) {
-            //    var article = state[i];
-            //    newState.push(article);
-            //}
-            //return newState;
 
+    switch (action.type) {
+
+        case ARTICLES_GET:
+            return Object.assign({}, state, {
+                isFetching: true
+            });
+        case ARTICLES_GET_SUCCESS:
+            return Object.assign({}, state, {
+                isFetching: false,
+                items: action.articles
+            });
+        case ARTICLES_GET_FAILURE:
+            return Object.assign({}, state, {
+                isFetching: false
+            });
+        case ADD_ARTICLE:
             /* es6 way of creating a new array with destruction*/
             return [action.payload, ...state];
 

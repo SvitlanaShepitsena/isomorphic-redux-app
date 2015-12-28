@@ -1,8 +1,4 @@
-import {
-  SELECT_REDDIT,
-  INVALIDATE_REDDIT,
-  POSTS_GET, POSTS_GET_REQUEST, POSTS_GET_SUCCESS, POSTS_GET_FAILURE
-} from '../actions/reddit';
+import { SELECT_REDDIT, INVALIDATE_REDDIT, POSTS_GET, POSTS_GET_REQUEST, POSTS_GET_SUCCESS, POSTS_GET_FAILURE } from '../actions/reddit';
 
 function posts(state = {
   error: {},
@@ -14,7 +10,7 @@ function posts(state = {
   case INVALIDATE_REDDIT:
     return Object.assign({}, state, {
       didInvalidate: true
-    }); 
+    });
   case POSTS_GET_REQUEST:
     return Object.assign({}, state, {
       isFetching: true,
