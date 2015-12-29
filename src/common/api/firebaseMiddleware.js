@@ -23,6 +23,7 @@ export default function firebaseMiddleware() {
                             article.key = key;
                             return article;
                         });
+                        debugger;
                     } else {
                         articles = data;
                     }

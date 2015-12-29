@@ -12,7 +12,7 @@ export default class ArticleList extends React.Component {
         return (
             <div>
                 {this.props.articles && <ul>
-                    {this.props.articles.map(article=><li>{article.title}</li>)}
+                    {this.props.articles.map((article)=><li key={article.key}>{article.title}</li>)}
                 </ul>}
             </div>
         )
