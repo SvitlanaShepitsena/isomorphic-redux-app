@@ -10,19 +10,8 @@ Article.need = [
 ]
 /* Binds Store and Dumb component, so it can get access via (this.props) to the store data. */
 function mapStateToProps(state) {
-    let {articles} = state;
+    return state.article;
 
-    const {
-        isFetching,
-        error,
-        items
-        } = articles;
-
-    return {
-        items,
-        isFetching,
-        error
-    };
 }
 /* Binds actions to the store dispatch methods,
  so dumb component can react on user actions and dispatch them */

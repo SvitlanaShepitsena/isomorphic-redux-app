@@ -1,6 +1,7 @@
 import request from 'axios';
 
 export const ARTICLES_GET = 'ARTICLES_GET';
+export const ARTICLES_GET_REQUEST = 'ARTICLES_GET_REQUEST';
 export const ARTICLES_GET_SUCCESS = 'ARTICLES_GET_SUCCESS';
 export const ARTICLES_GET_FAILURE = 'ARTICLES_GET_FAILURE';
 
@@ -18,6 +19,13 @@ export function articlesGet() {
         type: ARTICLES_GET,
         promise: request.get('https://chicagowepapp.firebaseio.com/articles.json'),
         isFb: true
+    };
+}
+
+export function articlesRequestStarted() {
+    return {
+        type: ARTICLES_GET_REQUEST,
+        articl
     };
 }
 export function getArticlesSuccess(articles) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import ArticleForm from './ArticleForm.js';
+import Loader from './Loader.js';
 import ArticleList from './ArticleList.js';
 
 export default class Article extends React.Component {
@@ -10,18 +11,17 @@ export default class Article extends React.Component {
         super(props);
     }
 
+    /* This method is run when component just added to the real DOM*/
     componentDidMount() {
         this.props.articlesGet();
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-    }
-
     render() {
+        const {isFetching,articles,error}=this.props;
         return (
             <div>
-                <ArticleList articles={this.props.items}/>
+                {isFetching && <Loader/> }
+                {!isFetching && <ArticleList articles={articles}/>}
             </div>
         )
     }
