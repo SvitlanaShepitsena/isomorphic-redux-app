@@ -7,7 +7,6 @@ export default function firebaseMiddleware() {
         /* filter out all fb requests */
         if (!promise || !isFb) return next(action);
         const REQUEST = type + '_REQUEST';
-
         const SUCCESS = type + '_SUCCESS';
         const FAILURE = type + '_FAILURE';
 
@@ -15,14 +14,21 @@ export default function firebaseMiddleware() {
         return promise
             .then(req => {
                 let articles;
-
-                var data = req.data/**/;
+                /*conversion fb data from obj to array*/
+                var data = req.data;
                 if (data) {
-                    articles = Object.keys(data).map(key=>data[key]);
+                    if (typeof data === "object") {
+                        articles = Object.keys(data).map(key=> {
+                            let article = data[key];
+                            article.key = key;
+                            return article;
+                        });
+                    } else {
+                        articles = data;
+                    }
                 }
                 /* Slowing up request to see the loader*/
                 setTimeout(()=> {
-
                     next({...rest, articles, type: SUCCESS});
                     return true;
                 }, 1000);

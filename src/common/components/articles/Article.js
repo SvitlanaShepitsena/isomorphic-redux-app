@@ -1,5 +1,4 @@
 import React from 'react';
-import ArticleForm from './ArticleForm.js';
 import Loader from './Loader.js';
 import ArticleList from './ArticleList.js';
 
@@ -17,7 +16,7 @@ export default class Article extends React.Component {
     }
 
     render() {
-        const {isFetching,articles,error}=this.props;
+        const {isFetching,articles,error} = this.props;
         return (
             <div>
                 {isFetching && <Loader/> }

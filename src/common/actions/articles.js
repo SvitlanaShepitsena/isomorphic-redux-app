@@ -6,11 +6,6 @@ export const ARTICLES_GET_SUCCESS = 'ARTICLES_GET_SUCCESS';
 export const ARTICLES_GET_FAILURE = 'ARTICLES_GET_FAILURE';
 
 export const ADD_ARTICLE = 'ADD_ARTICLE';
-//export const ADD_ARTICLE = 'ADD_ARTICLE';
-//export const ADD_ARTICLE = 'ADD_ARTICLE';
-//
-//export const REMOVE_ARTICLE = 'REMOVE_ARTICLE';
-//export const REMOVE_ARTICLE = 'REMOVE_ARTICLE';
 export const REMOVE_ARTICLE = 'REMOVE_ARTICLE';
 
 /*Action Creator functions*/
@@ -24,8 +19,7 @@ export function articlesGet() {
 
 export function articlesRequestStarted() {
     return {
-        type: ARTICLES_GET_REQUEST,
-        articl
+        type: ARTICLES_GET_REQUEST
     };
 }
 export function getArticlesSuccess(articles) {

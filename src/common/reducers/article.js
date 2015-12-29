@@ -1,7 +1,6 @@
 import {ARTICLES_GET_REQUEST, ARTICLES_GET_SUCCESS, ARTICLES_GET_FAILURE, ADD_ARTICLE, REMOVE_ARTICLE} from '../actions/articles';
 
-export default function article(state = { isFetching: true, articles: [], error: null}, action) {
-
+export default function article(state = {isFetching: true, articles: [], error: null}, action) {
     switch (action.type) {
         case ARTICLES_GET_REQUEST:
             /*Create a new object, copy all props from old state and set isFetching to true */
