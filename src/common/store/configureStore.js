@@ -16,7 +16,7 @@ import firebaseMiddleware from '../api/firebaseMiddleware';
 const middlewareBuilder = () => {
     let middleware = {};
     /*thunk convert action creator function to the action object to pass it further*/
-    let universalMiddleware = [thunk, firebaseMiddleware,promiseMiddleware];
+    let universalMiddleware = [thunk, firebaseMiddleware, promiseMiddleware];
     let allComposeElements = [];
 
     if (process.browser) {
@@ -33,13 +33,15 @@ const middlewareBuilder = () => {
         } else {
             /*Development*/
             middleware = applyMiddleware(...universalMiddleware, createLogger());
+            let chromedevtools = window.devToolsExtension ? window.devToolsExtension() : f => f;
+
             allComposeElements = [
                 middleware,
                 reduxReactRouter({
                     createHistory
                 }),
                 devTools(),
-                window.devToolsExtension()
+                chromedevtools
             ]
         }
     } else {

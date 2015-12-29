@@ -8,8 +8,6 @@ export default class ArticleList extends React.Component {
         super(props);
     }
 
-
-
     render() {
         return (
             <div>
