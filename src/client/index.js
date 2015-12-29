@@ -30,6 +30,6 @@ React.render(
     document.getElementById('root')
 );
 
-if (process.env.NODE_ENV !== 'production') {
-    require('../server/devtools')(store);
-}
+//if (process.env.NODE_ENV !== 'production') {
+//    require('../server/devtools')(store);
+//}
