@@ -49,4 +49,12 @@ export function removeArticle(index) {
     };
 }
 
+export function getArticlesIfNeeded() {
+    return (dispatch, getState) => {
+        if (!getState().article) {
+            return dispatch(articlesGet());
+        }
+    };
+}
+
 

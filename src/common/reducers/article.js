@@ -1,6 +1,6 @@
 import {ARTICLES_GET_REQUEST, ARTICLES_GET_SUCCESS, ARTICLES_GET_FAILURE, ADD_ARTICLE, REMOVE_ARTICLE} from '../actions/articles';
 
-export default function article(state = {isFetching: true, articles: [], error: null}, action) {
+export default function article(state = {isFetching: false, articles: [], error: null}, action) {
     switch (action.type) {
         case ARTICLES_GET_REQUEST:
             /*ES6 Syntax for updating state with Object.assign(). */

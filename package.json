@@ -6,8 +6,8 @@
     "slate": "rimraf -rf node_modules && npm install",
     "clean": "rimraf -rf dist",
     "start": "set NODE_ENV=development&&node src/server/index.js --progress --colors --profile",
-    "start-prod": "set NODE_ENV=production && node src/server/index.js --progress --colors --profile",
-    "build": "npm run clean && set NODE_ENV=production && webpack -p --progress --colors --profile",
+    "start-prod": "set NODE_ENV=production&&node src/server/index.js --progress --colors --profile",
+    "build": "npm run clean&&set NODE_ENV=production&&webpack -p --progress --colors --profile",
     "test": "set NODE_ENV=test ** mocha --compilers js:babel/register --recursive"
   },
   "repository": {

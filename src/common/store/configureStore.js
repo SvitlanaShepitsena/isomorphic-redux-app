@@ -16,7 +16,7 @@ import firebaseMiddleware from '../api/firebaseMiddleware';
 const middlewareBuilder = () => {
     let middleware = {};
     /*thunk convert action creator function to the action object to pass it further*/
-    let universalMiddleware = [thunk, firebaseMiddleware, promiseMiddleware];
+    let universalMiddleware = [thunk, promiseMiddleware,firebaseMiddleware];
     let allComposeElements = [];
 
     if (process.browser) {
