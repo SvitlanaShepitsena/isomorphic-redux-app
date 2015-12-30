@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'production') {
                 include: __dirname
             },
                 {test: /\.(png|jpg|gif|jpeg)$/, loader: 'url-loader?limit=8192'},
-                {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader!style-loader', 'css-loader?sourceMap')}
+                { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") }
             ]
         },
         plugins: [
@@ -92,6 +92,7 @@ if (process.env.NODE_ENV === 'production') {
             poll: 1000
         },
         plugins: [
+            new ExtractTextPlugin('app.css'),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.DefinePlugin({
                 "process.env": {

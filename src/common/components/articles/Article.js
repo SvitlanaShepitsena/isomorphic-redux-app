@@ -12,7 +12,10 @@ export default class Article extends React.Component {
 
     /* This method runs when component just added to the real DOM*/
     componentDidMount() {
-        this.props.articlesGet();
+        if (this.props.article) {
+
+            this.props.articlesGet();
+        }
     }
 
     render() {
