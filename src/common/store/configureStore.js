@@ -41,6 +41,7 @@ const middlewareBuilder = () => {
                     createHistory
                 }),
                 chromedevtools
+                //devTools()
             ]
         }
     } else {
