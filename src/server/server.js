@@ -48,7 +48,6 @@ if (process.env.NODE_ENV !== 'production') {
     app.use('/static', express.static(__dirname + '/../../dist'));
 }
 
-
 app.get('/*', function (req, res) {
 
     const location = createLocation(req.url);
@@ -69,8 +68,15 @@ app.get('/*', function (req, res) {
 
                     if (!renderProps)
                         return res.status(404).end('Not found');
+                    let store;
 
-                    const store = configureStore({user: user, article:article, version: packagejson.version});
+                    if (req.location === '/' || req.location === '/home') {
+                        store = configureStore({user: user, article: article, version: packagejson.version});
+
+                    } else {
+                         store = configureStore({user: user, article: article, version: packagejson.version});
+
+                    }
 
                     const InitialView = (
                         <Provider store={store}>
