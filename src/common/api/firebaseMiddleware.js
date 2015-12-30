@@ -9,7 +9,7 @@ export default function firebaseMiddleware() {
         const REQUEST = type + '_REQUEST';
         const SUCCESS = type + '_SUCCESS';
         const FAILURE = type + '_FAILURE';
-
+        /*triggers ARTICLES_GET_REQUEST*/
         next({...rest, type: REQUEST});
         return promise
             .then(req => {
@@ -23,7 +23,6 @@ export default function firebaseMiddleware() {
                             article.key = key;
                             return article;
                         });
-                        debugger;
                     } else {
                         articles = data;
                     }

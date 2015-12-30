@@ -11,8 +11,14 @@ export default class ArticleList extends React.Component {
     render() {
         return (
             <div>
-                {this.props.articles && <ul>
-                    {this.props.articles.map((article)=><li key={article.key}>{article.title}</li>)}
+                {this.props.articles &&
+                <ul>
+                    {this.props.articles.map((article)=>
+                        /* Each child in an array or iterator should have a unique "key" prop*/
+                        <li key={article.key}>
+                            {article.title}
+                        </li>
+                    )}
                 </ul>}
             </div>
         )

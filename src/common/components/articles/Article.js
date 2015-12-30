@@ -10,7 +10,7 @@ export default class Article extends React.Component {
         super(props);
     }
 
-    /* This method is run when component just added to the real DOM*/
+    /* This method runs when component just added to the real DOM*/
     componentDidMount() {
         this.props.articlesGet();
     }
