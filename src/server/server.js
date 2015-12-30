@@ -20,6 +20,7 @@ import packagejson from '../../package.json';
 delete process.env.BROWSER;
 
 const app = express();
+app.use(favicon(__dirname + '/static/favicon.ico'));
 const renderFullPage = (html, initialState) => {
     const styleLink = process.env.NODE_ENV === 'development' ? `` : `<link rel="stylesheet" type="text/css" href="/static/app.css">`;
     return `
@@ -40,7 +41,6 @@ const renderFullPage = (html, initialState) => {
     </html>
   `;
 }
-
 if (process.env.NODE_ENV !== 'production') {
     const compiler = webpack(webpackConfig);
     app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: webpackConfig.output.publicPath}));
