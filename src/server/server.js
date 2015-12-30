@@ -1,6 +1,5 @@
 import express from 'express';
 import favicon from 'serve-favicon';
-import path from 'path';
 
 import webpack from 'webpack';
 import webpackConfig from '../../webpack.config';
@@ -21,7 +20,6 @@ import packagejson from '../../package.json';
 delete process.env.BROWSER;
 
 const app = express();
-app.use(favicon(path.resolve(__dirname, '../../static/favicon.ico')));
 const renderFullPage = (html, initialState) => {
     const styleLink = process.env.NODE_ENV === 'development' ? `` : `<link rel="stylesheet" type="text/css" href="/static/app.css">`;
     return `
@@ -60,21 +58,24 @@ app.get('/*', function (req, res) {
                 return res.status(401).end('Not Authorised');
             }
             fetchArticles().then((article)=> {
+                console.log(article);
                 match({routes, location}, (err, redirectLocation, renderProps) => {
 
                     if (err) {
+                        console.error(err);
                         return res.status(500).end('Internal server error');
                     }
 
                     if (!renderProps)
                         return res.status(404).end('Not found');
                     let store;
+                    console.log(req.url);
 
                     if (req.url === '/' || req.url === '/home') {
                         store = configureStore({user: user, article: article, version: packagejson.version});
 
                     } else {
-                        store = configureStore({user: user, version: packagejson.version});
+                         store = configureStore({user: user, version: packagejson.version});
 
                     }
 
@@ -94,6 +95,7 @@ app.get('/*', function (req, res) {
                             res.status(200).end(renderFullPage(componentHTML, initialState))
                         })
                         .catch(err => {
+                            console.log(err)
                             res.end(renderFullPage("", {}))
                         });
                 });
