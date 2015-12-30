@@ -1,4 +1,5 @@
 import express from 'express';
+import favicon from 'serve-favicon';
 
 import webpack from 'webpack';
 import webpackConfig from '../../webpack.config';
@@ -69,12 +70,13 @@ app.get('/*', function (req, res) {
                     if (!renderProps)
                         return res.status(404).end('Not found');
                     let store;
+                    console.log(req.url);
 
-                    if (req.location === '/' || req.location === '/home') {
+                    if (req.url === '/' || req.url === '/home') {
                         store = configureStore({user: user, article: article, version: packagejson.version});
 
                     } else {
-                         store = configureStore({user: user, article: article, version: packagejson.version});
+                         store = configureStore({user: user, version: packagejson.version});
 
                     }
 
