@@ -11,7 +11,7 @@ export default function createDevToolsWindow(store) {
     const win = window.open(
         null,
         name,
-        'menubar=no,location=no,resizable=yes,scrollbars=no,status=no,width=450,height=600'
+        'menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,width=450,height=600'
     );
 
     if (!win) {

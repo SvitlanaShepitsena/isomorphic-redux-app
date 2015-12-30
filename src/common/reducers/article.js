@@ -25,7 +25,7 @@ export default function article(state = {isFetching: false, articles: [], error:
                 state,
                 {
                     isFetching: false,
-                    error: article.error
+                    error: action.error
                 });
 
         case ADD_ARTICLE:

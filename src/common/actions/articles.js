@@ -32,6 +32,7 @@ export function getArticlesSuccess(articles) {
 export function getArticlesError(error) {
     return {
         type: ARTICLES_GET_FAILURE,
+        /* ES6*/
         error
     };
 }
