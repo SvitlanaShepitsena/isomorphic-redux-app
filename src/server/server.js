@@ -60,18 +60,15 @@ app.get('/*', function (req, res) {
                 return res.status(401).end('Not Authorised');
             }
             fetchArticles().then((article)=> {
-                console.log(article);
                 match({routes, location}, (err, redirectLocation, renderProps) => {
 
                     if (err) {
-                        console.error(err);
                         return res.status(500).end('Internal server error');
                     }
 
                     if (!renderProps)
                         return res.status(404).end('Not found');
                     let store;
-                    console.log(req.url);
 
                     if (req.url === '/' || req.url === '/home') {
                         store = configureStore({user: user, article: article, version: packagejson.version});
@@ -97,7 +94,6 @@ app.get('/*', function (req, res) {
                             res.status(200).end(renderFullPage(componentHTML, initialState))
                         })
                         .catch(err => {
-                            console.log(err)
                             res.end(renderFullPage("", {}))
                         });
                 });
