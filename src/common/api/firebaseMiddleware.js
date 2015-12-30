@@ -28,8 +28,10 @@ export default function firebaseMiddleware() {
                     }
                 }
                 /* Slowing up request to see the loader*/
+                setTimeout(()=> {
                     next({...rest, articles, type: SUCCESS});
                     return true;
+                }, 1000);
             })
             .catch(error => {
                 next({...rest, error, type: FAILURE});

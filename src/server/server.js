@@ -1,5 +1,6 @@
 import express from 'express';
 import favicon from 'serve-favicon';
+import path from 'path';
 
 import webpack from 'webpack';
 import webpackConfig from '../../webpack.config';
@@ -20,7 +21,7 @@ import packagejson from '../../package.json';
 delete process.env.BROWSER;
 
 const app = express();
-app.use(favicon(__dirname + '/static/favicon.ico'));
+app.use(favicon(path.resolve(__dirname, '../../static/favicon.ico')));
 const renderFullPage = (html, initialState) => {
     const styleLink = process.env.NODE_ENV === 'development' ? `` : `<link rel="stylesheet" type="text/css" href="/static/app.css">`;
     return `
@@ -76,7 +77,7 @@ app.get('/*', function (req, res) {
                         store = configureStore({user: user, article: article, version: packagejson.version});
 
                     } else {
-                         store = configureStore({user: user, version: packagejson.version});
+                        store = configureStore({user: user, version: packagejson.version});
 
                     }
 

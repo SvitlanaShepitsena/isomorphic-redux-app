@@ -6,8 +6,8 @@
     "slate": "rimraf -rf node_modules && npm install",
     "clean": "rimraf -rf dist",
     "start": "set NODE_ENV=development&&node src/server/index.js --progress --colors --profile",
-    "start-prod": "set NODE_ENV=production&&node src/server/index.js --progress --colors --profile",
-    "build": "npm run clean&&set NODE_ENV=production&&webpack -p --progress --colors --profile",
+    "start-prod": "set NODE_ENV=production && node src/server/index.js --progress --colors --profile",
+    "build": "npm run clean && set NODE_ENV=production && webpack -p --progress --colors --profile",
     "test": "set NODE_ENV=test ** mocha --compilers js:babel/register --recursive"
   },
   "repository": {
@@ -28,7 +28,8 @@
     "redux": "^3.0.0",
     "redux-router": "^1.0.0-beta3",
     "redux-thunk": "^0.1.0",
-    "redux-undo": "^0.5.0"
+    "redux-undo": "^0.5.0",
+    "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^5.8.22",

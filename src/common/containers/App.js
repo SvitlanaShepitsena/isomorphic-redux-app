@@ -59,7 +59,6 @@ class App extends Component {
 
 function mapStateToProps(state) {
     return {
-        article:state.article,
         counter: state.counter.present,
         todos: state.todos.present,
         version: state.version,
