@@ -34,7 +34,6 @@ const middlewareBuilder = () => {
             /*Development*/
             middleware = applyMiddleware(...universalMiddleware, createLogger());
             let chromedevtools = window.devToolsExtension ? window.devToolsExtension() : f => f;
-
             allComposeElements = [
                 middleware,
                 reduxReactRouter({

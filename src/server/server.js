@@ -58,7 +58,6 @@ app.get('/*', function (req, res) {
                 return res.status(401).end('Not Authorised');
             }
             fetchArticles().then((article)=> {
-                console.log(article);
                 match({routes, location}, (err, redirectLocation, renderProps) => {
 
                     if (err) {
@@ -69,13 +68,11 @@ app.get('/*', function (req, res) {
                     if (!renderProps)
                         return res.status(404).end('Not found');
                     let store;
-                    console.log(req.url);
 
-                    if (req.url === '/' || req.url === '/home') {
+                    if (process.env.NODE_ENV === 'production' && (req.url === '/' || req.url === '/home')) {
                         store = configureStore({user: user, article: article, version: packagejson.version});
-
                     } else {
-                         store = configureStore({user: user, version: packagejson.version});
+                        store = configureStore({user: user, version: packagejson.version});
 
                     }
 
@@ -95,7 +92,6 @@ app.get('/*', function (req, res) {
                             res.status(200).end(renderFullPage(componentHTML, initialState))
                         })
                         .catch(err => {
-                            console.log(err)
                             res.end(renderFullPage("", {}))
                         });
                 });
@@ -105,8 +101,9 @@ app.get('/*', function (req, res) {
     )
 
 });
+const port = process.env.PORT || 3000;
 
-const server = app.listen(3002, function () {
+const server = app.listen(3000, function () {
     const host = server.address().address;
     const port = server.address().port;
     console.log('Example app listening at http://%s:%s', host, port);

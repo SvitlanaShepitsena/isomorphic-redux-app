@@ -12,8 +12,8 @@ export default class Article extends React.Component {
 
     /* This method runs when component just added to the real DOM*/
     componentDidMount() {
-        if (!this.props.articles.length) {
-
+        /*!this.props.articles.length*/
+        if (this.props.articles) {
             this.props.articlesGet();
         }
     }
