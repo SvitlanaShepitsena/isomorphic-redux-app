@@ -8,10 +8,12 @@ import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 export default function createDevToolsWindow(store) {
     // Give it a name so it reuses the same window
     const name = 'Redux DevTools';
+    const devToolsPopup = 'menubar=no,location=no,resizable=yes,scrollbars=no,status=no,width=450,height=600';
+    const devToolsWindow = 'menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,width=450,height=600';
     const win = window.open(
         null,
         name,
-        'menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,width=450,height=600'
+        devToolsWindow
     );
 
     if (!win) {

@@ -12,16 +12,14 @@ export default class Article extends React.Component {
 
     /* This method runs when component just added to the real DOM*/
     componentDidMount() {
-        /*!this.props.articles.length*/
-        if (this.props.articles) {
-            this.props.articlesGet();
-        }
+        this.props.articlesGet();
     }
 
     render() {
         const {isFetching,articles,error} = this.props;
         return (
             <div>
+                {error && <div> No data </div> }
                 {isFetching && <Loader/> }
                 {!isFetching && <ArticleList articles={articles}/>}
             </div>

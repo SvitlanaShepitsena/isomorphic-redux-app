@@ -17,15 +17,17 @@ export default function article(state = {isFetching: false, articles: [], error:
                 state,
                 {
                     isFetching: false,
-                    articles: action.articles
+                    articles: action.articles,
                 });
         case ARTICLES_GET_FAILURE:
             return Object.assign(
                 {},
                 state,
                 {
-                    isFetching: false,
-                    error: action.error
+                    error: action.error,
+                    isFetching:false
+
+
                 });
 
         case ADD_ARTICLE:

@@ -13,6 +13,7 @@ export function articlesGet() {
     return {
         type: ARTICLES_GET,
         promise: request.get('https://chicagowepapp.firebaseio.com/articles.json'),
+
         isFb: true
     };
 }
@@ -25,14 +26,12 @@ export function articlesRequestStarted() {
 export function getArticlesSuccess(articles) {
     return {
         type: ARTICLES_GET_SUCCESS,
-        /* ES6*/
         articles
     };
 }
-export function getArticlesError(error) {
+export function getArticlesFailure(error) {
     return {
         type: ARTICLES_GET_FAILURE,
-        /* ES6*/
         error
     };
 }

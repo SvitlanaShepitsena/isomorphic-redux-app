@@ -16,6 +16,13 @@ export default function firebaseMiddleware() {
                 let articles;
                 /*conversion fb data from obj to array*/
                 var data = req.data;
+                if (data === null) {
+                    var error=new Error('Cannot get Data');
+                    next({...rest, error, type: FAILURE});
+                    return false;
+                }
+
+
                 if (data) {
                     if (typeof data === "object") {
                         articles = Object.keys(data).map(key=> {
@@ -28,8 +35,8 @@ export default function firebaseMiddleware() {
                     }
                 }
                 /* Slowing up request to see the loader*/
-                    next({...rest, articles, type: SUCCESS});
-                    return true;
+                next({...rest, articles, type: SUCCESS});
+                return true;
             })
             .catch(error => {
                 next({...rest, error, type: FAILURE});

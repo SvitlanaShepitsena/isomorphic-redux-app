@@ -3,12 +3,12 @@ import { SET_COUNTER, INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/co
 export default function counter(state = 0, action) {
     switch (action.type) {
         case SET_COUNTER:
-            return action.payload, 1;
+            return action.payload, 10;
         case INCREMENT_COUNTER:
-            if (state === 7) {
-                throw new Error('Bad Error')
+            if (state === 17) {
+                throw new Error('Counter Error')
             }
-            return state + 1;
+            return state + 10;
         case DECREMENT_COUNTER:
             return state - 1;
         default:
