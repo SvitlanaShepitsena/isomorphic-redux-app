@@ -4,25 +4,23 @@ export default function firebaseMiddleware() {
         /* destructuring action object to local variables*/
         const { promise, isFb,type, ...rest } = action;
 
-        /* filter out all fb requests */
+        /* filter out all requests, that is not a Firebase promise */
         if (!promise || !isFb) return next(action);
         const REQUEST = type + '_REQUEST';
         const SUCCESS = type + '_SUCCESS';
         const FAILURE = type + '_FAILURE';
-        /*triggers ARTICLES_GET_REQUEST*/
+        /*triggers ARTICLES_GET_REQUEST action*/
         next({...rest, type: REQUEST});
         return promise
             .then(req => {
                 let articles;
-                /*conversion fb data from obj to array*/
                 var data = req.data;
                 if (data === null) {
-                    var error=new Error('Cannot get Data');
+                    var error = new Error('No data.');
                     next({...rest, error, type: FAILURE});
                     return false;
                 }
-
-
+                /*conversion fb data from obj to array*/
                 if (data) {
                     if (typeof data === "object") {
                         articles = Object.keys(data).map(key=> {
@@ -38,10 +36,5 @@ export default function firebaseMiddleware() {
                 next({...rest, articles, type: SUCCESS});
                 return true;
             })
-            .catch(error => {
-                next({...rest, error, type: FAILURE});
-                console.log(error);
-                return false;
-            });
     };
 }

@@ -3,10 +3,7 @@ import Loader from './Loader.js';
 import ArticleList from './ArticleList.js';
 
 export default class Article extends React.Component {
-    // Constructor
     constructor(props) {
-        // Running constructor of Parent (React.Component) for binding this to object.
-        // Dynamically assigned global property This is always a component itself.
         super(props);
     }
 
@@ -19,10 +16,11 @@ export default class Article extends React.Component {
         const {isFetching,articles,error} = this.props;
         return (
             <div>
-                {error && <div> No data </div> }
+                {error && <div> Cannot get Data from Firebase </div> }
                 {isFetching && <Loader/> }
                 {!isFetching && <ArticleList articles={articles}/>}
             </div>
         )
     }
 }
+

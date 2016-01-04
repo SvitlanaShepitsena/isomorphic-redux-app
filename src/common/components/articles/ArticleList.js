@@ -14,6 +14,7 @@ export default class ArticleList extends React.Component {
                     {this.props.articles.map((article)=>
                         /* Each child in an array or iterator should have a unique "key" prop*/
                         <li key={article.key}>
+                            <hr/>
                             {article.title}
                         </li>
                     )}

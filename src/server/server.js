@@ -73,7 +73,6 @@ app.get('/*', function (req, res) {
                         store = configureStore({user: user, article: article, version: packagejson.version});
                     } else {
                         store = configureStore({user: user, version: packagejson.version});
-
                     }
 
                     const InitialView = (

@@ -1,5 +1,5 @@
 /**
- * This looks at static needs parameter in components and waits for the promise to be fullfilled
+ * This looks at static needs parameter in components and waits for the promise to be fulfilled
  * It is used to make sure server side rendered pages wait for APIs to resolve before returning res.end()
  */
 

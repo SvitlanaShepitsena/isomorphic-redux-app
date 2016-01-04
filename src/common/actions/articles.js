@@ -1,3 +1,4 @@
+//axios - Promise based HTTP client for the browser and node.js
 import request from 'axios';
 
 export const ARTICLES_GET = 'ARTICLES_GET';
@@ -13,26 +14,7 @@ export function articlesGet() {
     return {
         type: ARTICLES_GET,
         promise: request.get('https://chicagowepapp.firebaseio.com/articles.json'),
-
         isFb: true
-    };
-}
-
-export function articlesRequestStarted() {
-    return {
-        type: ARTICLES_GET_REQUEST
-    };
-}
-export function getArticlesSuccess(articles) {
-    return {
-        type: ARTICLES_GET_SUCCESS,
-        articles
-    };
-}
-export function getArticlesFailure(error) {
-    return {
-        type: ARTICLES_GET_FAILURE,
-        error
     };
 }
 
@@ -49,12 +31,12 @@ export function removeArticle(index) {
     };
 }
 
-export function getArticlesIfNeeded() {
-    return (dispatch, getState) => {
-        if (!getState().article) {
-            return dispatch(articlesGet());
-        }
-    };
-}
-
+//export function getArticlesIfNeeded() {
+//    return (dispatch, getState) => {
+//        if (!getState().article) {
+//            return dispatch(articlesGet());
+//        }
+//    };
+//}
+//
 
