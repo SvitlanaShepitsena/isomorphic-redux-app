@@ -53,46 +53,45 @@ app.get('/*', function (req, res) {
     const location = createLocation(req.url);
 
     getUser(user => {
-
             if (!user) {
                 return res.status(401).end('Not Authorised');
             }
 
-                match({routes, location}, (err, redirectLocation, renderProps) => {
+            match({routes, location}, (err, redirectLocation, renderProps) => {
 
-                    if (err) {
-                        console.error(err);
-                        return res.status(500).end('Internal server error');
-                    }
+                if (err) {
+                    console.error(err);
+                    return res.status(500).end('Internal server error');
+                }
 
-                    if (!renderProps)
-                        return res.status(404).end('Not found');
-                    let store;
+                if (!renderProps)
+                    return res.status(404).end('Not found');
+                let store;
 
-                    if (process.env.NODE_ENV === 'production') {
-                        store = configureStore({user: user, article: article, version: packagejson.version});
-                    } else {
-                        store = configureStore({user: user, version: packagejson.version});
-                    }
+                if (process.env.NODE_ENV === 'production') {
+                    store = configureStore({user: user, article: article, version: packagejson.version});
+                } else {
+                    store = configureStore({user: user, version: packagejson.version});
+                }
 
-                    const InitialView = (
-                        <Provider store={store}>
-                            {() =>
-                                <RoutingContext {...renderProps} />
-                            }
-                        </Provider>
-                    );
+                const InitialView = (
+                    <Provider store={store}>
+                        {() =>
+                            <RoutingContext {...renderProps} />
+                        }
+                    </Provider>
+                );
 
-                    //This method waits for all render component promises to resolve before returning to browser
-                    fetchComponentDataBeforeRender(store.dispatch, renderProps.components, renderProps.params)
-                        .then(html => {
-                            const componentHTML = React.renderToString(InitialView);
-                            const initialState = store.getState();
-                            res.status(200).end(renderFullPage(componentHTML, initialState))
-                        })
-                        .catch(err => {
-                            res.end(renderFullPage("", {}))
-                        });
+                //This method waits for all render component promises to resolve before returning to browser
+                fetchComponentDataBeforeRender(store.dispatch, renderProps.components, renderProps.params)
+                    .then(html => {
+                        const componentHTML = React.renderToString(InitialView);
+                        const initialState = store.getState();
+                        res.status(200).end(renderFullPage(componentHTML, initialState))
+                    })
+                    .catch(err => {
+                        res.end(renderFullPage("", {}))
+                    });
 
             });
         }
