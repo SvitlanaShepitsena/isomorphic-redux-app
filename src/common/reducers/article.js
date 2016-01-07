@@ -8,7 +8,8 @@ export default function article(state = {isFetching: false, articles: [], error:
             return Object.assign(
                 {},
                 state,
-                {isFetching: true}
+                {isFetching: true
+                }
             );
         case ARTICLES_GET_SUCCESS:
             /* Resolve promise with articles and create a new state with fetching:false, and articles from db*/
@@ -17,6 +18,7 @@ export default function article(state = {isFetching: false, articles: [], error:
                 state,
                 {
                     isFetching: false,
+                    error: false,
                     articles: action.articles,
                 });
         case ARTICLES_GET_FAILURE:

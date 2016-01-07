@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 import ButtonLink from './buttons/link/ButtonLink.js';
 import ArticlesPage from '../containers/ArticlesPage.js';
+import {articlesGet} from '../actions/articles';
 
 class Blog extends Component {
 
@@ -24,4 +25,7 @@ class Blog extends Component {
         );
     }
 }
+Blog.need = [
+    articlesGet
+]
 export default Radium(Blog);

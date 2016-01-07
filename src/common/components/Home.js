@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Articles from '../containers/ArticlesPage';
+import {articlesGet} from '../actions/articles';
+
 
 class Home extends Component {
 
@@ -11,4 +13,7 @@ class Home extends Component {
     }
 }
 
+Home.need = [
+    articlesGet
+]
 export default Home;

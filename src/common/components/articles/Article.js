@@ -18,7 +18,7 @@ export default class Article extends React.Component {
             <div>
                 {error && <div> Cannot get Data from Firebase </div> }
                 {isFetching && <Loader/> }
-                {!isFetching && <ArticleList articles={articles}/>}
+                {!error && articles && <ArticleList articles={articles}/>}
             </div>
         )
     }

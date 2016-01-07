@@ -57,7 +57,7 @@ app.get('/*', function (req, res) {
             if (!user) {
                 return res.status(401).end('Not Authorised');
             }
-            fetchArticles().then((article)=> {
+
                 match({routes, location}, (err, redirectLocation, renderProps) => {
 
                     if (err) {
@@ -69,7 +69,7 @@ app.get('/*', function (req, res) {
                         return res.status(404).end('Not found');
                     let store;
 
-                    if (process.env.NODE_ENV === 'production' && (req.url === '/' || req.url === '/home')) {
+                    if (process.env.NODE_ENV === 'production') {
                         store = configureStore({user: user, article: article, version: packagejson.version});
                     } else {
                         store = configureStore({user: user, version: packagejson.version});
@@ -93,7 +93,6 @@ app.get('/*', function (req, res) {
                         .catch(err => {
                             res.end(renderFullPage("", {}))
                         });
-                });
 
             });
         }
